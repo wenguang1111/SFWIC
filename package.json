@@ -1,0 +1,6 @@
+{
+  "name": "harbor-clash",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test" }
+}

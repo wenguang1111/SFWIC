@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#15171b"><title>临港对决 · Harbor Clash</title>
+  <link rel="icon" href="data:,"><link rel="stylesheet" href="./style.css"><script type="module" src="./main.js"></script>
+</head><body>
+<header class="top"><div class="frame top-inner"><a class="brand" href="./" aria-label="临港对决 首页"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span> HARBOR CLASH</a><div class="top-tools"><span class="live"><i></i> 本地街机</span><button id="guide" class="quiet">按键指南 <b>?</b></button></div></div></header>
+<main class="frame">
+  <div class="crumb"><span>ARCADE SYSTEM</span><i>/</i><span id="location">角色整备</span></div>
+  <section id="lobby" aria-label="赛前整备">
+    <div class="page-title"><div><span class="eyebrow"><i></i> ARCADE MODE &nbsp; / &nbsp; 1P VS CPU</span><h1>临港对决<span>.</span></h1></div><span class="edition">INGOLSTADT<br><b>SATURN ARENA</b></span></div>
+    <section class="stage-brief" aria-label="花滑角色与主场"><div><span class="eyebrow">NEW FIGHTER / 冰上少女</span><h2>以旋转连踢，以花滑抢拍。</h2><p>站 D 接旋风连转三段旋转踢，阿克塞尔升空对空，冰弧突进滑入追击。冰刀只用于滑行，不以冰刀劈砍。</p></div><div class="stage-address"><strong>SATURN ARENA</strong><span>Ingolstadt · 冰上主场</span><small>含冰上少女的对局进入冰场，其余对局保留港区夜场。</small></div></section>
+    <div class="lobby-grid"><section class="profile panel"><div class="bar"><strong><em>01</em> 角色档案</strong><span>FIGHTER PROFILE</span></div>
+      <div class="hero" id="hero"><div class="hero-grid"></div><div class="hero-copy"><span class="chip" id="fighter-number"></span><div class="hero-name" id="fighter-name"></div><strong id="fighter-style"></strong><p id="fighter-tagline"></p><p class="hero-combo"><b id="fighter-archetype"></b><span id="fighter-combo"></span></p></div><canvas id="portrait" width="640" height="500" aria-label="当前选手半身像"></canvas><span class="hero-cross" aria-hidden="true">+</span></div>
+      <div class="roster-wrap"><p class="micro">SELECT FIGHTER <span>/</span> 选择选手</p><div class="roster" id="roster"></div></div>
+    </section><aside class="panel loadout"><div class="bar"><strong><em>02</em> 招式表</strong><span>COMMAND LIST</span></div><div id="moves" class="moves"></div><div class="brief"><label for="mission">本场目标 <small>CONTRACT</small></label><select id="mission"></select><p id="objective"></p><div class="practice"><label><input type="checkbox" id="practice"> 练习模式 <small>不计时 · 陪练不动</small></label><select id="dummy-guard" aria-label="陪练防御方式"><option value="none">陪练不防御</option><option value="stand">陪练站防</option><option value="crouch">陪练蹲防</option></select></div><button id="start" class="primary">进入对战 <span>→</span></button></div></aside></div>
+  </section>
+  <section id="arena" hidden aria-label="单人对战"><div class="arena-title"><div><span class="eyebrow"><i></i> <span id="arena-label">HARBOR DISTRICT / 1P VS CPU</span></span><h1 id="arena-heading">港区夜场</h1></div><button class="quiet" id="pause">暂停 <b>Esc</b></button></div>
+    <div class="arena-panel panel"><div class="hud">
+      <div class="vitals">
+        <div><small>1P</small> <strong id="p-name"></strong> <small id="defense-ready"></small></div>
+        <progress id="p-hp" aria-label="玩家生命" max="100"></progress>
+        <span class="gauge"><meter id="p-meter" aria-label="玩家能量" min="0" max="100"></meter><i title="超必杀线 50" aria-hidden="true"></i></span>
+        <small id="p-energy"></small>
+      </div>
+      <div class="time"><small>TIME</small><b id="time">60</b></div>
+      <div class="vitals cpu">
+        <div><strong id="c-name"></strong> <small id="c-role">CPU</small></div>
+        <progress id="c-hp" aria-label="对手生命" max="100"></progress>
+        <span class="gauge"><meter id="c-meter" aria-label="对手能量" min="0" max="100"></meter><i title="超必杀线 50" aria-hidden="true"></i></span>
+        <small id="c-energy"></small>
+      </div>
+    </div>
+    <div class="ring">
+      <canvas id="stage" width="1920" height="800" aria-label="港区对战场地"></canvas>
+      <div class="combo-count p" id="p-combo" aria-hidden="true"></div><div class="combo-count c" id="c-combo" aria-hidden="true"></div>
+      <div id="cover" class="cover" hidden><div class="cover-card">
+        <span class="eyebrow" id="cover-code"></span><h2 id="cover-title"></h2><p id="cover-detail"></p>
+        <div class="cover-buttons"><button class="primary" id="continue"></button><button class="quiet" id="leave">返回选人</button></div>
+      </div></div>
+    </div>
+    <div class="match-foot"><span><small>CONTRACT</small> <b id="contract-name"></b></span><span id="progress"></span></div></div>
+    <div class="keys-strip">A / D 移动　·　W 跳　·　S 蹲　·　J 轻拳 A　·　K 轻脚 B　·　U 重拳 C　·　I 重脚 D　·　J+K 防守技　·　近身 ←/→ + U 投　·　↓↘→ 等指令按面朝右，换边自动镜像</div>
+  </section>
+  <footer><span><b>HC</b> &nbsp; 港区街机系统</span><span>1P VS CPU · 练习 &nbsp; / &nbsp; KEYBOARD</span></footer>
+</main>
+<dialog id="manual"><div class="bar"><strong><em>?</em> 操作手册</strong><span>FIELD GUIDE</span></div><div class="manual-body"><h2>按键指南</h2><dl><dt>A / D 或 ← / →</dt><dd>左右移动；地面按住远离对手的方向可站防。</dd><dt>S 或 ↓</dt><dd>下蹲；同时按住后方向为蹲防。站防挡上段与中段，蹲防挡中段与低段。</dd><dt>W 或 ↑</dt><dd>跳跃，配合方向斜跳；落地时仍按住会再跳。</dd><dt>J / K / U / I</dt><dd>A 轻拳 / B 轻脚 / C 重拳 / D 重脚。站、蹲、跳各有四种普通技。</dd><dt>J + K</dt><dd>同时按下（3 帧内先后也算），角色专属防守技，有冷却。</dd><dt>近身 ←/→ + U</dt><dd>普通投，无视防御。</dd><dt>↓↘→ + J/U</dt><dd>指令技按角色面朝右记，换边自动镜像。招式表写成 ↓↘→ + 拳(J/U)，即依次按 ↓、↘、→ 后按 J 或 U；「拳」= J 或 U，「脚」= K 或 I。</dd><dt>←(蓄) →</dt><dd>蓄力技：按住后方向约 0.7 秒再推前方向并出招；蓄力期间照样能防御。</dd><dt>连招</dt><dd>轻攻击可以互相连打；轻攻击与近身重攻击命中或被防的瞬间输入必杀技即可取消接上。场地上方显示 HITS 与连段伤害。</dd><dt>超必杀</dt><dd>能量条过 50 的刻线即可用，如 ↓↘→↓↘→ + 拳，起手画面暗场。</dd><dt>练习模式</dt><dd>开局前在目标下方勾选：不计时，陪练站着不动，可选站防或蹲防。</dd><dt>Esc</dt><dd>暂停或继续。切换窗口会自动暂停。</dd></dl><button id="close-guide" class="primary">明白了 <span>↵</span></button></div></dialog>
+</body></html>
